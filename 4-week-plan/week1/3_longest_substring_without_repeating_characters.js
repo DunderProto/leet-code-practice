@@ -12,14 +12,17 @@ var lengthOfLongestSubstring = function(s) {
     let i = 0;
     let j = 0;
     let longest = 0;
+    let count = 0;
     
     while (i < s.length) {
         if (!seen[s[i]]) {
             seen[s[i]] = true;
+            count++;
             i++;
-            longest = Math.max(longest, Object.values(seen).length);
+            longest = Math.max(longest, count);
         } else {
             delete seen[s[j]];
+            count--;
             j++;
         }
     }
